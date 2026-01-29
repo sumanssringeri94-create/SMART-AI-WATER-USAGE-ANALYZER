@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Smart Water Usage Advisor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #56ccf2, #2f80ed);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2f80ed;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2f80ed;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1c5fc4;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .alert {
+            color: red;
+            font-weight: bold;
+        }
+
+        .good {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>💧 Smart Water Usage Advisor</h1>
+
+    <label>Enter Your Name</label>
+    <input type="text" id="name" placeholder="Your Name">
+
+    <label>Water used for Bathing (litres)</label>
+    <input type="number" id="bath">
+
+    <label>Water used for Cooking (litres)</label>
+    <input type="number" id="cook">
+
+    <label>Water used for Washing Clothes (litres)</label>
+    <input type="number" id="wash">
+
+    <label>Water used for Cleaning (litres)</label>
+    <input type="number" id="clean">
+
+    <label>Water used for Drinking (litres)</label>
+    <input type="number" id="drink">
+
+    <button onclick="analyzeWater()">Analyze Today's Usage</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function analyzeWater() {
+        const name = document.getElementById("name").value;
+
+        const bath = Number(document.getElementById("bath").value);
+        const cook = Number(document.getElementById("cook").value);
+        const wash = Number(document.getElementById("wash").value);
+        const clean = Number(document.getElementById("clean").value);
+        const drink = Number(document.getElementById("drink").value);
+
+        const total = bath + cook + wash + clean + drink;
+
+        let message = `<h3>Hello ${name} 👋</h3>`;
+        message += `<p><b>Total Water Used Today:</b> ${total} litres</p>`;
+
+        // AI-inspired logic
+        if (total > 150) {
+            message += `<p class="alert">⚠ High water usage detected!</p>`;
+            message += `<ul>
+                <li>Reduce shower time</li>
+                <li>Use bucket instead of shower</li>
+                <li>Reuse water for plants</li>
+                <li>Fix leaking taps immediately</li>
+            </ul>`;
+        } else {
+            message += `<p class="good">✅ Your water usage is sustainable.</p>`;
+            message += `<p>Keep following eco-friendly water practices 🌱</p>`;
+        }
+
+        document.getElementById("result").innerHTML = message;
+    }
+</script>
+
+</body>
+</html>
