@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMART AI WATER USAGE ANALYZER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1> SMART AI WATER USAGE ANALYZER</h1>
+
+        <div class="section">
+            <h3>Add Water Usage</h3>
+            <input type="number" id="usageInput" placeholder="Enter usage">
+            <button onclick="addUsage()">Add</button>
+        </div>
+
+        <div class="section">
+            <h3>Analyze Usage</h3>
+            <input type="text" id="recentInput" placeholder="Enter last 3 values (120,130,140)">
+            <button onclick="analyzeUsage()">Analyze</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
